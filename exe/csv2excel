@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+
+require "csv2excel"
+require 'optparse'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.on('-f', '--file VALUE', String, 'CSV file path') { |v| options[:file] = v }
+  opts.on('-d', '--dir VALUE', String, 'Directory path') { |v| options[:directory] = v }
+  opts.on('-h', '--help', 'Prints this help') do
+    puts opts
+    exit
+  end
+end.parse!
+
+
+unless options[:directory].nil?
+  CSV.to_xlsx(dir: options[:directory])
+  exit
+end
+
+raise ArgumentError, 'Please input named argument(:file)!' if options[:file].nil?
+
+CSV.to_xlsx(file: options.fetch(:file))
