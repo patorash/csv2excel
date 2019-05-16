@@ -1,8 +1,6 @@
 # csv2excel
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/csv2excel`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Convert CSV to Excel(xlsx) file.
 
 ## Installation
 
@@ -27,13 +25,13 @@ Or install it yourself as:
 #### File
 
 ```bash
-$ csv2excel -f ./foo.csv
+$ csv2excel -f ./foo.csv # => create ./foo.xlsx
 ```
 
 #### Directory
 
 ```bash
-$ csv2excel -d ./foo
+$ csv2excel -d ./bar # => create ./bar/*.xlsx
 ```
 
 ### Code
@@ -45,7 +43,7 @@ require 'csv2excel'
 CSV.to_xlsx(file: 'foo.csv')
 
 # directory
-CSV.to_xlsx(dir: './foo')
+CSV.to_xlsx(dir: './bar')
 ```
 
 
