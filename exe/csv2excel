@@ -8,7 +8,9 @@ options = {}
 OptionParser.new do |opts|
   opts.on('-f', '--file VALUE', String, 'CSV file path') { |v| options[:file] = v }
   opts.on('-d', '--dir VALUE', String, 'Directory path') { |v| options[:directory] = v }
+  opts.on('-v', '--version', 'Prints version') { puts "Version: #{Csv2excel::VERSION}"; exit }
   opts.on('-h', '--help', 'Prints this help') do
+    puts "Version: #{Csv2excel::VERSION}"
     puts opts
     exit
   end
